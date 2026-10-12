@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+
+/* Farben im iOS-Stil, hell und dunkel */
+:root {
+  --app-bg: #f2f2f7;
+  --app-card: #ffffff;
+  --app-bar: #f9f9f9;
+  --app-text: #000000;
+  --app-muted: #8e8e93;
+  --app-sep: #e5e5ea;
+  --app-accent: #007aff;
+  --app-danger: #ff3b30;
+  --app-success: #34c759;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: #000000;
+    --app-card: #1c1c1e;
+    --app-bar: #121212;
+    --app-text: #ffffff;
+    --app-muted: #8e8e93;
+    --app-sep: #38383a;
+    --app-accent: #0a84ff;
+    --app-danger: #ff453a;
+    --app-success: #30d158;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--app-bg);
+  --color-card: var(--app-card);
+  --color-bar: var(--app-bar);
+  --color-fg: var(--app-text);
+  --color-muted: var(--app-muted);
+  --color-sep: var(--app-sep);
+  --color-accent: var(--app-accent);
+  --color-danger: var(--app-danger);
+  --color-success: var(--app-success);
+  --color-mood-1: #ef4444;
+  --color-mood-2: #f97316;
+  --color-mood-3: #eab308;
+  --color-mood-4: #84cc16;
+  --color-mood-5: #22c55e;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-sans);
+  overscroll-behavior-y: none;
+}
+
+/* Kein Auto-Zoom auf iOS: Eingabefelder mindestens 16px */
+input,
+textarea,
+select {
+  font-size: max(16px, 1em);
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input[type='search']::-webkit-search-cancel-button {
+  display: none;
+}
